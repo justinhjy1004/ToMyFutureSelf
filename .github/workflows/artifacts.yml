@@ -25,3 +25,4 @@ jobs:
         with:
           name: generated-email-artifact
           path: email.txt
+          if-no-files-found: error

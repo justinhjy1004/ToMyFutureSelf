@@ -19,5 +19,10 @@ func main() {
 
 	email := smtp.Email{TimeCreated: time.Now(), TimeToBeSent: time.Now().AddDate(0, 0, 1000), Subject: strings.SplitN(string(file), "\n", 2)[0], Body: strings.SplitN(string(file), "\n", 2)[1]}
 
-	os.WriteFile("email.txt", []byte(email.Subject), 0644)
+	err = os.WriteFile("email.txt", []byte(email.Subject), 0644)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
 }
