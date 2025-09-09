@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 	"strings"
@@ -18,9 +17,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	//log.Println(strings.SplitN(string(file), "\n", 2)[1])
-
 	email := smtp.Email{TimeCreated: time.Now(), TimeToBeSent: time.Now().AddDate(0, 0, 1000), Subject: strings.SplitN(string(file), "\n", 2)[0], Body: strings.SplitN(string(file), "\n", 2)[1]}
 
-	fmt.Println(email)
+	os.WriteFile("email.txt", []byte(email.Subject), 0644)
 }
