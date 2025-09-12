@@ -27,10 +27,12 @@ jobs:
           path: email.txt
           if-no-files-found: error
 
-      - name: Check if email.txt is accessible
+      - name: Download email artifact
         uses: actions/download-artifact@v5
         with:
           name: generated-email-artifact
           path: email.txt
           if-no-files-found: error
-        run: cat email.txt
+
+      - name: Check if email.txt is accessible
+        run: cat ./downloaded-email/email.txt
