@@ -26,3 +26,11 @@ jobs:
           name: generated-email-artifact
           path: email.txt
           if-no-files-found: error
+
+      - name: Check if email.txt is accessible
+        uses: actions/download-artifact@v5
+        with:
+          name: generated-email-artifact
+          path: email.txt
+          if-no-files-found: error
+        run: cat email.txt
