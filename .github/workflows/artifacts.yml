@@ -35,4 +35,5 @@ jobs:
           if-no-files-found: error
 
       - name: Check if email.txt is accessible
-        run: cat ./downloaded-email/email.txt
+        run: |
+          value=`cat email.txt`
